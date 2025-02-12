@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:28:28 by barjimen          #+#    #+#             */
-/*   Updated: 2025/01/17 22:28:29 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:45:26 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,18 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef struct s_stack
+typedef enum e_args
 {
+    PHILO_NB,
+    DIE_TIME,
+    EAT_TIME,
+    SLEEP_TIME,
+    EAT_NB
+}  t_args;
 
-}	t_stack;
+typedef struct s_data
+{
+    int args[5];
+}	t_data;
 
 #endif 
