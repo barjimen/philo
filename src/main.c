@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:27:37 by barjimen          #+#    #+#             */
-/*   Updated: 2025/02/12 20:00:14 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/02/23 00:45:17 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,18 @@ int argument_manage(int ac, char **av, t_data *data)
 int	main(int ac, char **av)
 {
 	t_data data;
+
 	ft_bzero(&data, sizeof(t_data));
 	int i;
 
 	i = 0;
 	if (!argument_manage(ac, av, &data))
 		return (1); //printear error
-	while (i < (ac - 1))
+	if(init_mutex(&data))
 	{
-		printf("%d\n", data.args[i]);
-		i++;
+		printf("mutex init error\n");
+		return (1);
 	}
+	
 	return (0);
 }
