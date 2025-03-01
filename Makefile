@@ -6,7 +6,7 @@
 #    By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/17 20:05:06 by barjimen          #+#    #+#              #
-#    Updated: 2025/01/17 20:10:36 by barjimen         ###   ########.fr        #
+#    Updated: 2025/03/01 20:25:59 by barjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,12 @@
 #--- .C
 	
 	SRC_FILES	:=		main  			 		\
+						mutex					\
+						routine					\
+						utils					\
+						lib						\
+						monitor					\
+						
 
 #--- File variables
 

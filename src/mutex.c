@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:56:10 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/01 16:09:36 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/01 20:25:31 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,25 +44,26 @@ int	destroy_mutex(t_data *data)
 	return (0);
 }
 
-int	init_philos(t_data *data)
+void	init_philos(t_data *data)
 {
 	int	i;
 	int	j;
 
-	j = 5;
 	i = data->args[PHILO_NB];
 	while (i--)
 	{
+		j = 5;
 		while (j--)
 			data->philos[i].args[j] = data->args[j];
 		if (!data->args[EAT_NB])
-			data->philos[i].args[EAT_NB] = INT_MAX;
+			data->philos[i].args[EAT_NB] = 10;
 		data->philos[i].index = i + 1;
 		data->philos[i].start_time = ft_gettime();
 		data->philos[i].last_meal = data->philos[i].start_time;
 		data->philos[i].writing = &data->writing;
 		data->philos[i].start = &data->start;
 		data->philos[i].muelto = &data->muelto;
+		data->philos[i].vivo = &data->vivo;
 		data->philos[i].eating = &data->eating;
 		data->philos[i].left = &data->forks[i];
 		if (i == data->args[PHILO_NB] - 1)
@@ -79,6 +80,21 @@ void	init_threads(t_data *data)
 	i = data->args[PHILO_NB];
 	while (i--)
 	{
-		if (pthread_create(&data->philos[i].thread, NULL, ))
+		if (pthread_create(&data->philos[i].thread, NULL, &routine,
+				&data->philos[i]) != 0)
+		{
+			destroy_mutex(data);
+			printf("Error al crear philos\n");
+		}
+	}
+	monitor(data);
+	i = data->args[PHILO_NB];
+	while (i--)
+	{
+		if (pthread_join(data->philos[i].thread, NULL) != 0)
+		{
+			destroy_mutex(data);
+			printf("Error al unir philos\n");
+		}
 	}
 }

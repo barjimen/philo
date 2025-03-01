@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:28:28 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/01 16:09:18 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/01 20:24:37 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_philo
 	pthread_mutex_t	*left;
 	pthread_mutex_t	*writing;
 	pthread_mutex_t	*muelto;
+	int				*vivo;
 	pthread_mutex_t	*start;
 	pthread_mutex_t	*eating;
 	int				index;
@@ -49,6 +50,7 @@ typedef struct s_philo
 typedef struct s_data
 {
 	int				args[5];
+	int				vivo;
 	t_philo			philos[200];
 	pthread_mutex_t	forks[200];
 
@@ -66,15 +68,18 @@ int					ft_atoi(const char *str);
 int					ft_isdigit(int c);
 void				ft_bzero(void *s, size_t n);
 int					init_mutex(t_data *data);
+void				init_threads(t_data *data);
 int					destroy_mutex(t_data *data);
-int					init_philos(t_data *data);
+void				init_philos(t_data *data);
 void				printf_mutex(t_philo *philo, char *msg);
+void				*routine(void *arg);
+void				monitor(t_data *data);
 
-# define EATING "[%d] %d is eating"
-# define SLEEPING "[%d] %d is sleeping"
-# define THINKING "[%d] %d is thinking"
-# define TAKE_FORK "[%d] %d has taken a fork"
-# define DIED "[%d] %d died"
-# define FULL "[%d] %d is full"
+# define EATING "[%d] %d is eating\n"
+# define SLEEPING "[%d] %d is sleeping\n"
+# define THINKING "[%d] %d is thinking\n"
+# define TAKE_FORK "[%d] %d has taken a fork\n"
+# define DIED "[%d] %d died\n"
+# define FULL "\033[0;32m[%d] %d is full\n\033[m"
 
 #endif

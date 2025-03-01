@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:27:37 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/01 16:09:28 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/01 19:46:19 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ int	main(int ac, char **av)
 		printf("mutex init error\n");
 		return (1);
 	}
+	init_philos(&data);
+	init_threads(&data);
 	return (0);
 }
