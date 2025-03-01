@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:30:57 by barjimen          #+#    #+#             */
-/*   Updated: 2025/02/22 20:51:33 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:10:03 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_bzero(void *s, size_t n)
 
 	i = 0;
 	while (i < n)
-		((unsigned char *) s)[i++] = '\0';
+		((unsigned char *)s)[i++] = '\0';
 }
 
 int	ft_isdigit(int c)
@@ -56,25 +56,26 @@ int	ft_atoi(const char *str)
 	return (nb);
 }
 
-size_t ft_gettime(void)
+size_t	ft_gettime(void)
 {
-    struct timeval time;
-    if(gettimeofday(&time,NULL) == -1)
-    {
-        printf("Error en gettime\n");
-        exit(1);
-    }
-    return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL) == -1)
+	{
+		printf("Error en gettime\n");
+		exit(1);
+	}
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
-int ft_usleep(size_t milisec)
+int	ft_usleep(size_t milisec)
 {
-    size_t start;
+	size_t	start;
 
-    start = ft_gettime();
-    while ((ft_gettime() - start) < milisec)
-    {
-        usleep(500);
-    }
-    return (0);
+	start = ft_gettime();
+	while ((ft_gettime() - start) < milisec)
+	{
+		usleep(500);
+	}
+	return (0);
 }

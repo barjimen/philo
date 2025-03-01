@@ -6,13 +6,13 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:27:37 by barjimen          #+#    #+#             */
-/*   Updated: 2025/02/23 00:45:17 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:09:28 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philosophers.h"
 
-int is_valid(char *av)
+int	is_valid(char *av)
 {
 	while (*av)
 	{
@@ -23,10 +23,10 @@ int is_valid(char *av)
 	return (1);
 }
 
-int argument_manage(int ac, char **av, t_data *data)
+int	argument_manage(int ac, char **av, t_data *data)
 {
-	int i;
-	
+	int	i;
+
 	i = 1;
 	if (ac == 5 || ac == 6)
 	{
@@ -41,7 +41,7 @@ int argument_manage(int ac, char **av, t_data *data)
 		i = 0;
 		while (i < (ac - 1))
 		{
-			if(data->args[i] == 0 || data->args[PHILO_NB] > 200)
+			if (data->args[i] == 0 || data->args[PHILO_NB] > 200)
 				return (0);
 			i++;
 		}
@@ -52,19 +52,17 @@ int argument_manage(int ac, char **av, t_data *data)
 
 int	main(int ac, char **av)
 {
-	t_data data;
+	t_data	data;
+	int		i;
 
 	ft_bzero(&data, sizeof(t_data));
-	int i;
-
 	i = 0;
 	if (!argument_manage(ac, av, &data))
-		return (1); //printear error
-	if(init_mutex(&data))
+		return (1); // printear error
+	if (init_mutex(&data))
 	{
 		printf("mutex init error\n");
 		return (1);
 	}
-	
 	return (0);
 }
