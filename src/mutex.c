@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:56:10 by barjimen          #+#    #+#             */
-/*   Updated: 2025/02/23 00:50:44 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/02/23 01:25:05 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int init_philos(t_data *data)
         data->philos[i].writing = &data->writing;
         data->philos[i].start = &data->start;
         data->philos[i].muelto = &data->muelto;
+        data->philos[i].eating = &data->eating;
         data->philos[i].left = &data->forks[i];
         if (i == data->args[PHILO_NB] - 1 )
             data->philos[i].right = &data->forks[0];

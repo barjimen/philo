@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:28:28 by barjimen          #+#    #+#             */
-/*   Updated: 2025/02/23 01:14:02 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/02/23 01:29:41 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_philo
     pthread_mutex_t *writing;
     pthread_mutex_t *muelto;
     pthread_mutex_t *start;
+    pthread_mutex_t *eating;
     int index;
     int args[5];
     size_t last_meal;
@@ -55,6 +56,7 @@ typedef struct s_data
     pthread_mutex_t writing;
     pthread_mutex_t start;
     pthread_mutex_t muelto;
+    pthread_mutex_t eating;
     
 }	t_data;
 
@@ -74,5 +76,6 @@ void printf_mutex(t_philo *philo, char *msg);
 # define THINKING "[%d] %d is thinking"
 # define TAKE_FORK "[%d] %d has taken a fork"
 # define DIED "[%d] %d died"
+# define FULL "[%d] %d is full"
 
 #endif 
