@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:28:28 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/01 20:24:37 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:14:24 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ void				printf_mutex(t_philo *philo, char *msg);
 void				*routine(void *arg);
 void				monitor(t_data *data);
 
-# define EATING "[%d] %d is eating\n"
+# define EATING "\033[0;32m[%d] %d is eating\n\033[m"
 # define SLEEPING "[%d] %d is sleeping\n"
 # define THINKING "[%d] %d is thinking\n"
 # define TAKE_FORK "[%d] %d has taken a fork\n"
-# define DIED "[%d] %d died\n"
+# define DIED "\033[0;31m[%d] %d died\n\033[m"
 # define FULL "\033[0;32m[%d] %d is full\n\033[m"
 
 #endif

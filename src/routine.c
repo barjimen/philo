@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 00:51:14 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/01 20:14:23 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:32:01 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	*routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	if (philo->index % 2)
+		ft_usleep(1);
 	while (alive_or_hungry(philo))
 	{
 		eat(philo);
