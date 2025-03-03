@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:27:37 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/01 19:46:19 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:42:44 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	argument_manage(int ac, char **av, t_data *data)
 				return (0);
 			i++;
 		}
+		if (ac == 5)
+			data->args[EAT_NB] = -1;
 		return (1);
 	}
 	return (0);
