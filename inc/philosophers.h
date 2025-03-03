@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:28:28 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/02 18:14:24 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:54:42 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ typedef struct s_data
 	t_philo			philos[200];
 	pthread_mutex_t	forks[200];
 
-	// Para limitar los printf ya que tienen que esperar para ir escribiendo cada evento
+	// Para limitar los printf ya que tienen
+	// que esperar para ir escribiendo cada evento
 	pthread_mutex_t	writing;
 	pthread_mutex_t	start;
 	pthread_mutex_t	muelto;
