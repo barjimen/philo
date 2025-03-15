@@ -6,14 +6,13 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:28:28 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/03 18:54:42 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:44:59 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 
-# include "../lib/Libft/libft.h"
 # include <limits.h>
 # include <pthread.h>
 # include <stdio.h>
@@ -77,9 +76,10 @@ void				*routine(void *arg);
 void				monitor(t_data *data);
 
 # define EATING "\033[0;32m[%d] %d is eating\n\033[m"
-# define SLEEPING "[%d] %d is sleeping\n"
-# define THINKING "[%d] %d is thinking\n"
-# define TAKE_FORK "[%d] %d has taken a fork\n"
+# define SLEEPING "\033[0;33m[%d] %d is sleeping\n\033[m"
+# define THINKING "\033[0;34m[%d] %d is thinking\n\033[m"
+# define TAKE_RFORK "\033[0;35m[%d] %d has taken a Rfork\n\033[m"
+# define TAKE_LFORK "\033[0;36m[%d] %d has taken a Lfork\n\033[m"
 # define DIED "\033[0;31m[%d] %d died\n\033[m"
 # define FULL "\033[0;32m[%d] %d is full\n\033[m"
 
