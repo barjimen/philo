@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 22:27:37 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/03 18:54:16 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:47:59 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	main(int ac, char **av)
 	i = 0;
 	if (!argument_manage(ac, av, &data))
 		return (1);
+	if (data.args[EAT_NB] != -1)
+		data.args[EAT_NB]++;
 	if (init_mutex(&data))
 	{
 		printf("mutex init error\n");

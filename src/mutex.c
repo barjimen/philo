@@ -6,7 +6,7 @@
 /*   By: barjimen <barjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 20:56:10 by barjimen          #+#    #+#             */
-/*   Updated: 2025/03/02 17:33:53 by barjimen         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:52:47 by barjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	init_mutex(t_data *data)
 		return (1);
 	if (pthread_mutex_init(&data->start, NULL) != 0)
 		return (1);
-	if (pthread_mutex_init(&data->muelto, NULL) != 0)
+	if (pthread_mutex_init(&data->dead, NULL) != 0)
 		return (1);
 	while (i--)
 	{
@@ -38,7 +38,7 @@ int	destroy_mutex(t_data *data)
 	i = data->args[PHILO_NB];
 	pthread_mutex_destroy(&data->writing);
 	pthread_mutex_destroy(&data->start);
-	pthread_mutex_destroy(&data->muelto);
+	pthread_mutex_destroy(&data->dead);
 	while (i--)
 		pthread_mutex_destroy(&data->forks[i]);
 	return (0);
@@ -62,7 +62,7 @@ void	init_philos(t_data *data)
 		data->philos[i].last_meal = data->philos[i].start_time;
 		data->philos[i].writing = &data->writing;
 		data->philos[i].start = &data->start;
-		data->philos[i].muelto = &data->muelto;
+		data->philos[i].dead = &data->dead;
 		data->philos[i].vivo = &data->vivo;
 		data->philos[i].eating = &data->eating;
 		data->philos[i].left = &data->forks[i];
